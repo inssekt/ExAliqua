@@ -27,7 +27,7 @@ class SiftingListener : Listener {
 
         // Check if the inventory being opened is a loom
         if (inventory.type == InventoryType.LOOM) {
-            if (itemInHand.type == Material.GRAVEL || itemInHand.type == Material.DIRT || itemInHand.type == Material.SAND) {
+            if (itemInHand.type != Material.WHITE_WOOL) {
                 event.isCancelled = true // Cancel the event to prevent the GUI from opening
             }
         }

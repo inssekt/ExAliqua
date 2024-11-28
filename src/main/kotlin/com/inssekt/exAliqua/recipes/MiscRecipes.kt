@@ -16,6 +16,7 @@ class MiscRecipes(private val plugin: JavaPlugin) {
     fun registerRecipes()
     {
         registerRockRecipe()
+        registerCrookRecipe()
     }
 
     fun registerRockRecipe()
@@ -29,6 +30,21 @@ class MiscRecipes(private val plugin: JavaPlugin) {
 
         recipe.shape("RR ", "RR ", "   ")
         recipe.setIngredient('R', RecipeChoice.ExactChoice(rockItem))
+
+        Bukkit.addRecipe(recipe)
+        registeredRecipeKeys.add(recipeKey)
+    }
+
+    fun registerCrookRecipe()
+    {
+        val recipeKey = NamespacedKey(plugin, "crook")
+
+        val result = ItemStack(CustomItems.CROOK)
+
+        val recipe=ShapedRecipe(recipeKey, result);
+
+        recipe.shape("SS ", " S ", " S ")
+        recipe.setIngredient('S', Material.STICK)
 
         Bukkit.addRecipe(recipe)
         registeredRecipeKeys.add(recipeKey)

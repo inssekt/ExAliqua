@@ -5,6 +5,23 @@ import org.bukkit.inventory.ItemStack
 
 object CustomItems {
 
+    val SILKWORM: ItemStack by lazy {
+        val item = ItemStack(Material.RABBIT_FOOT)
+        val meta = item.itemMeta
+
+        if (meta != null)
+        {
+            meta.setDisplayName("§7Silk Worm")
+            meta.lore = listOf(
+                "§7A worm that produces silk.", // Custom description
+                "§7Right click leaves to infest them."
+            )
+            item.itemMeta = meta
+        }
+
+        item
+    }
+
 
     val ROCK: ItemStack by lazy {
         val item = ItemStack(Material.FIREWORK_STAR)
@@ -16,6 +33,23 @@ object CustomItems {
             meta.lore = listOf(
                 "§7Rocks from the ground.", // Custom description
                 "§7Craft 4 into cobblestone."
+            )
+            item.itemMeta = meta
+        }
+
+        item
+    }
+
+    val CROOK: ItemStack by lazy {
+        val item = ItemStack(Material.WOODEN_HOE)
+        val meta = item.itemMeta
+
+        if (meta != null)
+        {
+            meta.setDisplayName("§7Crook")
+            meta.lore = listOf(
+                "§7A hooked tool.", // Custom description
+                "§7Used to gather silkworms from leaves."
             )
             item.itemMeta = meta
         }
@@ -98,6 +132,9 @@ object CustomItems {
             "stone_hammer" to STONE_HAMMER,
             "iron_hammer" to IRON_HAMMER,
             "diamond_hammer" to DIAMOND_HAMMER,
+            "rock" to ROCK,
+            "silkworm" to SILKWORM,
+            "crook" to CROOK
         )
     }
 

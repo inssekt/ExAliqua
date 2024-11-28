@@ -2,9 +2,7 @@ package com.inssekt.exAliqua
 
 import com.inssekt.exAliqua.commands.ExGiveCommand
 import com.inssekt.exAliqua.commands.ExItemsCommand
-import com.inssekt.exAliqua.events.HammerEventListener
-import com.inssekt.exAliqua.events.RockGatheringListener
-import com.inssekt.exAliqua.events.SiftingListener
+import com.inssekt.exAliqua.events.*
 import com.inssekt.exAliqua.gui.ExItemsGUIListener
 import com.inssekt.exAliqua.recipes.HammerRecipes
 import com.inssekt.exAliqua.recipes.MiscRecipes
@@ -28,6 +26,8 @@ class ExAliquaPlugin : JavaPlugin() {
         pluginManager.registerEvents(SiftingListener(), this)
         pluginManager.registerEvents(ExItemsGUIListener(), this)
         pluginManager.registerEvents(RockGatheringListener(), this)
+        pluginManager.registerEvents(CrookListener(), this)
+        pluginManager.registerEvents(SilkwormListener(this), this)
 
 
 
