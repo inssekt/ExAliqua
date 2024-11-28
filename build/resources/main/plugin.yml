@@ -1,0 +1,13 @@
+name: ExAliqua
+version: '1.0-SNAPSHOT'
+main: com.inssekt.exAliqua.ExAliquaPlugin
+api-version: '1.21'
+commands:
+  exgive:
+    description: Gives a custom item to a player.
+    usage: /exgive <item> [player]
+    permission: exaliqua.command.exgive
+    permission-message: You don't have permission to use this command.
+  exitems:
+    description: Opens the custom items GUI
+    usage: /<command>
