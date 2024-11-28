@@ -36,7 +36,7 @@ class SilkwormListener(private val plugin: JavaPlugin) : Listener {
             }
 
             infestLeaves(player, block)
-            event.isCancelled = true // Prevent default behavior
+            event.isCancelled = true
         }
     }
 
@@ -63,7 +63,7 @@ class SilkwormListener(private val plugin: JavaPlugin) : Listener {
                     if (block.location in visited) continue
                     visited.add(block.location)
 
-                    // Change the block to infested (e.g., a cobweb or a custom infested block)
+                    // Change the block to infested
                     block.type = Material.COBWEB // Or a custom "infested leaves" block
                     block.world.playSound(block.location, Sound.ENTITY_SILVERFISH_DEATH, 1.0f, 1.0f) // Sound can be adjusted here
 
