@@ -1,11 +1,15 @@
 package com.inssekt.exAliqua
 
+import com.inssekt.exAliqua.blocks.CrucibleManager
 import com.inssekt.exAliqua.commands.ExGiveCommand
 import com.inssekt.exAliqua.commands.ExItemsCommand
 import com.inssekt.exAliqua.events.*
 import com.inssekt.exAliqua.gui.ExItemsGUIListener
 import com.inssekt.exAliqua.recipes.HammerRecipes
 import com.inssekt.exAliqua.recipes.MiscRecipes
+import org.bukkit.event.EventHandler
+import org.bukkit.event.Listener
+import org.bukkit.event.block.BlockPlaceEvent
 import org.bukkit.plugin.PluginManager
 import org.bukkit.plugin.java.JavaPlugin
 
@@ -26,8 +30,13 @@ class ExAliquaPlugin : JavaPlugin() {
         pluginManager.registerEvents(SiftingListener(), this)
         pluginManager.registerEvents(ExItemsGUIListener(), this)
         pluginManager.registerEvents(RockGatheringListener(), this)
+        pluginManager.registerEvents(AncientSporesListener(), this)
+
         pluginManager.registerEvents(CrookListener(), this)
         pluginManager.registerEvents(SilkwormListener(this), this)
+
+        val crucibleManager = CrucibleManager(this)
+        pluginManager.registerEvents(crucibleManager, this)
 
 
 

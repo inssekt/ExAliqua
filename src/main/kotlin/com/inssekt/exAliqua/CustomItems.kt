@@ -5,6 +5,23 @@ import org.bukkit.inventory.ItemStack
 
 object CustomItems {
 
+    val ANCIENT_SPORES: ItemStack by lazy {
+        val item = ItemStack(Material.NETHER_WART)
+        val meta = item.itemMeta
+
+        if (meta != null)
+        {
+            meta.setDisplayName("§5Ancient Spores")
+            meta.lore = listOf(
+                "§7A mysterious spore.",
+                "§7Right click dirt to make mycelium."
+            )
+            item.itemMeta = meta
+        }
+
+        item
+    }
+
     val SILKWORM: ItemStack by lazy {
         val item = ItemStack(Material.RABBIT_FOOT)
         val meta = item.itemMeta
@@ -134,7 +151,8 @@ object CustomItems {
             "diamond_hammer" to DIAMOND_HAMMER,
             "rock" to ROCK,
             "silkworm" to SILKWORM,
-            "crook" to CROOK
+            "crook" to CROOK,
+            "ancient_spores" to ANCIENT_SPORES
         )
     }
 
