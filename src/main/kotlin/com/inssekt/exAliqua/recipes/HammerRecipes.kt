@@ -12,7 +12,6 @@ class HammerRecipes(private val plugin: JavaPlugin) {
 
     private val registeredRecipeKeys = mutableSetOf<NamespacedKey>()
 
-    // List of all the wood plank types that should work for the wooden hammer recipe
     private val woodPlanks = listOf(
         Material.OAK_PLANKS,
         Material.SPRUCE_PLANKS,
@@ -30,9 +29,7 @@ class HammerRecipes(private val plugin: JavaPlugin) {
         Material.DIAMOND to CustomItems.DIAMOND_HAMMER
     )
 
-    // Method to register all hammer recipes
     fun registerRecipes() {
-        // Register the wooden hammer recipe for each type of wood plank
         woodPlanks.forEach { plankType ->
             registerWoodenHammerRecipe(plankType)
         }
@@ -42,9 +39,7 @@ class HammerRecipes(private val plugin: JavaPlugin) {
         }
     }
 
-    // Register the recipe for the Wooden Hammer with a specific type of plank
     private fun registerWoodenHammerRecipe(plankType: Material) {
-        // Create the NamespacedKey for the recipe (namespace:recipe_name)
         val recipeKey = NamespacedKey(plugin, "wooden_hammer_${plankType.name.lowercase(Locale.getDefault())}")
 
         val recipe = ShapedRecipe(recipeKey, CustomItems.HAMMER)
@@ -52,30 +47,25 @@ class HammerRecipes(private val plugin: JavaPlugin) {
         recipe.setIngredient('W', plankType)   // Specific wood plank type (e.g., OAK_PLANKS)
         recipe.setIngredient('S', Material.STICK) // Stick
 
-        // Ensure the recipe is registered
         Bukkit.addRecipe(recipe)
         registeredRecipeKeys.add(recipeKey)
     }
 
-    // Register stone, iron, and diamond hammer recipes
     private fun registerHammerRecipe(material: Material, hammerItem: org.bukkit.inventory.ItemStack) {
-        // Create the NamespacedKey for the recipe (namespace:recipe_name)
         val recipeKey = NamespacedKey(plugin, "hammer_${material.name.lowercase(Locale.getDefault())}")
 
         val recipe = ShapedRecipe(recipeKey, hammerItem)
         recipe.shape(" WW", " SW", "S  ")
-        recipe.setIngredient('W', material)   // Specific material type (e.g., IRON_INGOT, GOLD_INGOT, DIAMOND)
+        recipe.setIngredient('W', material)   // Specific material type (e.g., IRON_INGOT, COBBLESTONE, DIAMOND)
         recipe.setIngredient('S', Material.STICK) // Stick
 
-        // Ensure the recipe is registered
         Bukkit.addRecipe(recipe)
         registeredRecipeKeys.add(recipeKey)
     }
 
     fun unregisterRecipes() {
-        // Iterate over all the registered recipe keys
         registeredRecipeKeys.forEach { recipeKey ->
-            Bukkit.removeRecipe(recipeKey) // Remove the recipe using its NamespacedKey
+            Bukkit.removeRecipe(recipeKey)
         }
 
         // Clear the set to avoid memory leaks

@@ -51,9 +51,8 @@ class MiscRecipes(private val plugin: JavaPlugin) {
     }
 
     fun unregisterRecipes() {
-        // Iterate over all the registered recipe keys
         registeredRecipeKeys.forEach { recipeKey ->
-            Bukkit.removeRecipe(recipeKey) // Remove the recipe using its NamespacedKey
+            Bukkit.removeRecipe(recipeKey)
         }
 
         // Clear the set to avoid memory leaks

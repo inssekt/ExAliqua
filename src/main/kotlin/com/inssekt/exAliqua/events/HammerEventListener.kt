@@ -19,12 +19,10 @@ class HammerEventListener : Listener {
         val player = event.player
         val itemInHand: ItemStack = player.inventory.itemInMainHand
 
-        // Check if the player is holding the custom hammer by comparing ItemMeta with CustomItems
         if (!isValidHammer(itemInHand)) return
 
         val block = event.block
 
-        // Determine the new block type based on the block broken
         val newBlockType: Material? = when (block.type) {
             Material.COBBLESTONE -> Material.GRAVEL
             Material.GRAVEL -> Material.SAND
@@ -32,13 +30,11 @@ class HammerEventListener : Listener {
             else -> null
         }
 
-        // If the block type can be transformed, replace it and drop the new item
         if (newBlockType != null) {
-            event.isCancelled = true // Prevent the default block break behavior
-            block.type = Material.AIR // Remove the block
+            event.isCancelled = true
+            block.type = Material.AIR
             block.world.dropItemNaturally(block.location, ItemStack(newBlockType)) // Drop the new item
 
-            // Optionally, decrease durability or handle other logic here
             decreaseHammerDurability(player, itemInHand)
             player.world.playSound(player.location, Sound.BLOCK_ANVIL_LAND, 1f, 1f)
         }
@@ -54,10 +50,7 @@ class HammerEventListener : Listener {
         }
     }
 
-    // Optionally, you can handle durability or other features
     private fun decreaseHammerDurability(player: Player, itemInHand: ItemStack) {
-        // You can choose to ignore durability checks or apply custom durability logic here
-        // Just for example, here's how you can decrease the durability if needed
         val durability = itemInHand.durability
 
         if (durability < itemInHand.type.maxDurability) {

@@ -13,7 +13,7 @@ object CustomItems {
         {
             meta.setDisplayName("§7Silk Worm")
             meta.lore = listOf(
-                "§7A worm that produces silk.", // Custom description
+                "§7A worm that produces silk.",
                 "§7Right click leaves to infest them."
             )
             item.itemMeta = meta
@@ -31,7 +31,7 @@ object CustomItems {
         {
             meta.setDisplayName("§7Rock")
             meta.lore = listOf(
-                "§7Rocks from the ground.", // Custom description
+                "§7Rocks from the ground.",
                 "§7Craft 4 into cobblestone."
             )
             item.itemMeta = meta
@@ -48,7 +48,7 @@ object CustomItems {
         {
             meta.setDisplayName("§7Crook")
             meta.lore = listOf(
-                "§7A hooked tool.", // Custom description
+                "§7A hooked tool.",
                 "§7Used to gather silkworms from leaves."
             )
             item.itemMeta = meta
@@ -66,7 +66,7 @@ object CustomItems {
         {
             meta.setDisplayName("§6Hammer")
             meta.lore = listOf(
-                "§7Breaks blocks into smaller pieces.", // Custom description
+                "§7Breaks blocks into smaller pieces.",
                 "§7Cobblestone → Gravel → Sand → Dirt"
             )
             item.itemMeta = meta
@@ -75,15 +75,15 @@ object CustomItems {
         item
     }
 
-    // Stone Hammer (using Stone Pickaxe)
+    // Stone Hammer
     val STONE_HAMMER: ItemStack by lazy {
         val item = ItemStack(Material.STONE_PICKAXE)
         val meta = item.itemMeta
 
         if (meta != null) {
-            meta.setDisplayName("§7Stone Hammer") // Custom name for Stone Hammer
+            meta.setDisplayName("§7Stone Hammer")
             meta.lore = listOf(
-                "§7Breaks blocks into smaller pieces.", // Custom description
+                "§7Breaks blocks into smaller pieces.",
                 "§7Cobblestone → Gravel → Sand → Dirt"
             )
             item.itemMeta = meta
@@ -92,15 +92,15 @@ object CustomItems {
         item
     }
 
-    // Iron Hammer (using Iron Pickaxe)
+    // Iron Hammer
     val IRON_HAMMER: ItemStack by lazy {
         val item = ItemStack(Material.IRON_PICKAXE)
         val meta = item.itemMeta
 
         if (meta != null) {
-            meta.setDisplayName("§fIron Hammer") // Custom name for Iron Hammer
+            meta.setDisplayName("§fIron Hammer")
             meta.lore = listOf(
-                "§7Breaks blocks into smaller pieces.", // Custom description
+                "§7Breaks blocks into smaller pieces.",
                 "§7Cobblestone → Gravel → Sand → Dirt"
             )
             item.itemMeta = meta
@@ -109,15 +109,15 @@ object CustomItems {
         item
     }
 
-    // Diamond Hammer (using Diamond Pickaxe)
+    // Diamond Hammer
     val DIAMOND_HAMMER: ItemStack by lazy {
         val item = ItemStack(Material.DIAMOND_PICKAXE)
         val meta = item.itemMeta
 
         if (meta != null) {
-            meta.setDisplayName("§bDiamond Hammer") // Custom name for Diamond Hammer
+            meta.setDisplayName("§bDiamond Hammer")
             meta.lore = listOf(
-                "§7Breaks blocks into smaller pieces.", // Custom description
+                "§7Breaks blocks into smaller pieces.",
                 "§7Cobblestone → Gravel → Sand → Dirt"
             )
             item.itemMeta = meta
