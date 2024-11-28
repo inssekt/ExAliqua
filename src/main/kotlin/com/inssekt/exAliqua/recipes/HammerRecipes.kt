@@ -12,6 +12,7 @@ class HammerRecipes(private val plugin: JavaPlugin) {
 
     private val registeredRecipeKeys = mutableSetOf<NamespacedKey>()
 
+    // Wood Types
     private val woodPlanks = listOf(
         Material.OAK_PLANKS,
         Material.SPRUCE_PLANKS,
